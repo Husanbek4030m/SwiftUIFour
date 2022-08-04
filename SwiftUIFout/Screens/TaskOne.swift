@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskOne: View {
     @Environment(\.presentationMode) var pr
-    
+    @State var showDetail = false
     let arr: [PhotoModels] = [
         PhotoModels(image: "001", counter: 2, description: "Toglarni rasmi "),
         PhotoModels(image: "002", counter: 10, description: "Abstrak rasm"),
@@ -22,9 +22,16 @@ struct TaskOne: View {
             ScrollView {
                 VStack(spacing: 8) {
                     ForEach(arr, id: \.self) { item in
-                        Image(item.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        Button {
+                            showDetail.toggle()
+                        } label: {
+                            Image(item.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }.sheet(isPresented: $showDetail) {
+                            DetailView(image: item.image, desc: item.description)
+                        }
+                        
                     }
                 }.padding(8)
             }.toolbar {
@@ -38,10 +45,10 @@ struct TaskOne: View {
                     } label: {
                         Image(systemName: "chevron.left")
                     }
-
+                    
                 }
             }.navigationBarTitle("Photo", displayMode: .inline)
-                
+            
             
         }
         .navigationBarBackButtonHidden(true)

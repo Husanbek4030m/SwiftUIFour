@@ -14,15 +14,9 @@ struct HomeScreen: View {
                 NavigationLink {
                     TaskOne()
                 } label: {
-                    Text("Task One").padding(10)
+                    Text("Task One vs two").padding(10)
                 }
-                
-                NavigationLink{
-                    TaskTwo()
-                } label: {
-                    Text("Task two").padding(10)
-                }
-                
+                               
                 
                 NavigationLink{
                     TaskThree()
