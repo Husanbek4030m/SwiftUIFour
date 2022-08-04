@@ -14,10 +14,32 @@ struct HomeScreen: View {
                 NavigationLink {
                     TaskOne()
                 } label: {
-                    Text("Task One")
+                    Text("Task One").padding(10)
+                }
+                
+                NavigationLink{
+                    TaskTwo()
+                } label: {
+                    Text("Task two").padding(10)
+                }
+                
+                
+                NavigationLink{
+                    TaskThree()
+                } label: {
+                    Text("Task three").padding(10)
+                }
+                
+                NavigationLink {
+                    TaskFour()
+                } label: {
+                    Text("Task four").padding(10)
                 }
             }
             .navigationBarTitle("Home", displayMode: .inline)
+            .navigationBarItems(leading: Image(systemName: "globe"),
+                                trailing: Image(systemName: "clock"))
+           
         }
     }
 }

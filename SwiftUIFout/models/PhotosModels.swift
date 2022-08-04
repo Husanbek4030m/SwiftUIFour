@@ -7,12 +7,9 @@
 
 import Foundation
 
-class PhotoModels {
+struct PhotoModels: Hashable {
     var image: String = ""
     var counter: Int = 0
+    var description: String = ""
     
-    init(image:String, counter:Int){
-        self.image = image
-        self.counter = counter
-    }
 }
